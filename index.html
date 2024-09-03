@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de l'Événement</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <section id="event-info">
+            <h2>Informations sur l'évènement</h2>
+            <table id="event-info-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la Colonne</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Ex: Nom de l'évènement"></td>
+                        <td>
+                            <button class="btn-validate" onclick="validateEventColumn(this)">✔</button>
+                            <button class="btn-delete" onclick="deleteRow(this)">✖</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn" onclick="addEventColumn()">Ajouter une colonne</button>
+        </section>
+
+        <section id="technical-script">
+            <h2>Technical Script</h2>
+            <table id="technical-script-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la Colonne</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Ex: Action"></td>
+                        <td>
+                            <button class="btn-validate" onclick="validateTechnicalColumn(this)">✔</button>
+                            <button class="btn-delete" onclick="deleteRow(this)">✖</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn" onclick="addTechnicalColumn()">Ajouter une colonne</button>
+            <label>
+                <input type="checkbox" id="diffusion-checkbox" onchange="toggleDiffusion()"> L'événement sera diffusé
+            </label>
+            <div id="diffusion-options" style="display:none;">
+                <h3>Options de Diffusion</h3>
+                <table id="diffusion-table">
+                    <thead>
+                        <tr>
+                            <th>Intervenant</th>
+                            <th>Écran</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" placeholder="Ex: Intervenant"></td>
+                            <td><input type="text" placeholder="Ex: Écran"></td>
+                            <td><button class="btn-delete" onclick="deleteRow(this)">✖</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn" onclick="addDiffusionRow()">Ajouter une ligne</button>
+                <button class="btn" onclick="updateDiffusionOptions()">Mettre à jour</button>
+                <div>
+                    <label>
+                        <input type="checkbox" id="logo-checkbox" onchange="toggleLogo()"> Afficher un logo
+                    </label>
+                    <div id="logo-options" style="display:none;">
+                        <label for="logo-position">Position du logo :</label>
+                        <select id="logo-position">
+                            <option value="top-left">Haut Gauche</option>
+                            <option value="top-right">Haut Droite</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-reset" onclick="resetInterface()">Reset</button>
+            <div id="screen-combinations" class="screen-combinations"></div>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
